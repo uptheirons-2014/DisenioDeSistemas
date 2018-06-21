@@ -56,7 +56,6 @@ public class Venta {
 		 this.esCompleta=true;
 	 }
 	
-	
 	/**
 	 * Este metodo Crea una instancia de Linea de Venta y la agrega a la colleccion "lineasDeVenta"
 	 * */
