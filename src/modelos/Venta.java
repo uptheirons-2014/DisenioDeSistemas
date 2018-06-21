@@ -22,6 +22,7 @@ public class Venta {
 		this.fecha= new Date();
 		this.hora = new SimpleDateFormat("HH:mm:ss");
 		this.esCompleta= false;
+		this.lineasDeVenta = new ArrayList<LineaDeVenta>();
 	}
 	
 	
@@ -60,7 +61,7 @@ public class Venta {
 	 * Este metodo Crea una instancia de Linea de Venta y la agrega a la colleccion "lineasDeVenta"
 	 * */
 	
-	public void crearLineaDeVenta(int cantidad, EspecificacionDelProducto producto){
+	public void aniadirLineaDeVenta( EspecificacionDelProducto producto, int cantidad){
 		LineaDeVenta unaLineaDeVenta = new LineaDeVenta(cantidad, producto);
 		this.lineasDeVenta.add(unaLineaDeVenta);
 	}
@@ -82,6 +83,27 @@ public class Venta {
 		}
 
 		return total;
+	}
+	
+	
+	public void mostrarDatosVenta() {
+		
+		System.out.println("DATOS DE LA VENTA");
+		System.out.println("---------------------------------------------------------------");
+		
+		Iterator<LineaDeVenta> iterator = this.lineasDeVenta.iterator();
+		while(iterator.hasNext()){
+			LineaDeVenta unaLineaDeVenta = iterator.next();
+			System.out.println("__________________________________________________");
+			System.out.println( unaLineaDeVenta.getProducto().getDescripcion()+ "  ------ " +unaLineaDeVenta.getCantidad()+" x $ " + unaLineaDeVenta.getProducto().getPrecio()+" -------- $ " + unaLineaDeVenta.getSubtotal());
+
+		}
+		System.out.println("____________________________________________________________________________");
+		System.out.println("TOTAL         $" + this.getTotal());
+
+		
+		
+		
 	}
 
 

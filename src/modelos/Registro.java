@@ -10,20 +10,19 @@ public class Registro {
 
 
 	public Registro(){
+
 		this.catalogo=new CatalogoDeProducto();  
 		
-		System.out.print("CATALOGO");
-		System.out.print(this.catalogo.descripcion);
+		System.out.println("CATALOGO");
+		System.out.println("----------------------------");
+		System.out.println("DESCRIPCION: " + this.catalogo.descripcion);
 		
 		Iterator<EspecificacionDelProducto> iterator = this.catalogo.collectionProductos.iterator();
 		while(iterator.hasNext()){
 			EspecificacionDelProducto unaEP = iterator.next();
 			System.out.println(unaEP.getDescripcion() + " ---- $ " + unaEP.getPrecio() );
 		}
-		
-		
-		
-	
+
 	}
 	
 	
@@ -37,9 +36,8 @@ public class Registro {
 	}
 	
 	
-	public void introducirArticulo() {
-		
-		
+	public EspecificacionDelProducto introducirArticulo(int articuloID) {
+		return this.catalogo.getEspectProducto(articuloID);
 		
 	}
 	
